@@ -5,15 +5,15 @@ This library uses SoftSerial to connect to the SDS011.
   
 ## Usage
   
-*Define SDS object:  
+* Define SDS object:  
 SDS011(uint8_t pin_rx, uint8_t pin_tx);  
 i.e. SDS011 mySDS(pinRX,pinTX);  
   
-*Start object:  
+* Start object:  
 void begin(void);  
 i.e. mySDS.begin();  
   
-*Read values:  
+* Read values:  
 int read(float *p25, float *p10);  
 i.e. error = mySDS(pm25,pm10);  
   
