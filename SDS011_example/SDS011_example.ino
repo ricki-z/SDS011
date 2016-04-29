@@ -4,16 +4,15 @@
 // By R. Zschiegner (rz@madavi.de).
 // April 2016
 
-
-#include "SDS011.h"
+#include <SDS011.h>
 
 float p10,p25;
 int error;
 
-SDS011 my_sds(D1,D2);
+SDS011 my_sds;
 
 void setup() {
-	my_sds.begin();
+	my_sds.begin(D1,D2);
 	Serial.begin(9600);
 }
 
