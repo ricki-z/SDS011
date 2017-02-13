@@ -19,7 +19,6 @@ SDS011::SDS011(void) {
 }
 
 int SDS011::read(float *p25, float *p10) {
-	String s = "";
 	char buffer;
 	int value;
 	int len = 0;
@@ -27,7 +26,6 @@ int SDS011::read(float *p25, float *p10) {
 	int pm25_serial = 0;
 	int checksum_is;
 	int checksum_ok = 0;
-	int position = 0;
 	int error = 1;
 	while ((sds_data->available() > 0) && (sds_data->available() >= (10-len))) {
 		buffer = sds_data->read();
@@ -57,12 +55,9 @@ int SDS011::read(float *p25, float *p10) {
 }
 
 void SDS011::begin(uint8_t pin_rx, uint8_t pin_tx) {
-	int error;
-	uint8_t c;
+	_pin_rx = pin_rx;
+	_pin_tx = pin_tx;
 
-  _pin_rx = pin_rx;
-  _pin_tx = pin_tx;
-  
 	SoftwareSerial *softSerial = new SoftwareSerial(_pin_rx, _pin_tx);
 
 	//Initialize the 'Wire' class for I2C-bus communication.
@@ -70,7 +65,4 @@ void SDS011::begin(uint8_t pin_rx, uint8_t pin_tx) {
 
 	sds_data = softSerial;
 }
-
-
-
 
