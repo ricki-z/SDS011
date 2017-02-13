@@ -19,7 +19,7 @@ SDS011::SDS011(void) {
 }
 
 int SDS011::read(float *p25, float *p10) {
-	char buffer;
+	byte buffer;
 	int value;
 	int len = 0;
 	int pm10_serial = 0;
