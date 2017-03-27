@@ -65,8 +65,8 @@ int SDS011::read(float *p25, float *p10) {
 		}
 		len++;
 		if (len == 10 && checksum_ok == 1) {
-			*p10 = pm10_serial/10;
-			*p25 = pm25_serial/10;
+			*p10 = (float)pm10_serial/10.0;
+			*p25 = (float)pm25_serial/10.0;
 			len = 0; checksum_ok = 0; pm10_serial = 0.0; pm25_serial = 0.0; checksum_is = 0;
 			error = 0;
 		}
