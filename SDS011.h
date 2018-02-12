@@ -23,8 +23,15 @@ class SDS011 {
 		void begin(uint8_t pin_rx, uint8_t pin_tx);
 		int read(float *p25, float *p10);
 		void sleep();
+    void mode_dsleep();
+    void mode_mon_300();
+    void mode_mon_60();
+    void mode_cont();
+    void mode_query();
+    void mode_active();
 		void wakeup();
 	private:
 		uint8_t _pin_rx, _pin_tx;
 		Stream *sds_data;		
+    void sendcmd(const byte* CMD);
 };
