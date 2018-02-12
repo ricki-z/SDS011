@@ -16,6 +16,14 @@ i.e. mySDS.begin();
 * Read values:  
 int read(float *p25, float *p10);  
 i.e. error = mySDS(pm25,pm10);  
+
+* Change sensor mode
+void mode_dsleep();
+void mode_mon_300();
+void mode_mon_60();
+void mode_cont();
+void mode_query();
+void mode_active();
   
 Reads the PM2.5 and PM10 values, return code is 0, if new values were read, and 1 if there were no new values.  
   
