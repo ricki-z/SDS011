@@ -102,7 +102,6 @@ void SDS011::begin(uint8_t pin_rx, uint8_t pin_tx) {
 
 	SoftwareSerial *softSerial = new SoftwareSerial(_pin_rx, _pin_tx);
 
-	//Initialize the 'Wire' class for I2C-bus communication.
 	softSerial->begin(9600);
 
 	sds_data = softSerial;
