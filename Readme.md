@@ -20,7 +20,7 @@ Reads the PM2.5 and PM10 values, return code is 0, if new values were read, and 
 
 ### Alternative with HardwareSerial
 * SDS object can also be initialized with a Serial object as parameter  
-SDS011(Stream serial);
-i.e. SDS011 mySDS(Serial1);
-  
+i.e.
+SDS011 mySDS;
+mySDS.begin(Serial1);
   
