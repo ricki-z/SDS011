@@ -108,3 +108,13 @@ void SDS011::begin(uint8_t pin_rx, uint8_t pin_tx) {
 	sds_data = softSerial;
 }
 
+void SDS011::begin(HardwareSerial* serial) {
+	serial->begin(9600);
+	sds_data = serial;
+}
+
+void SDS011::begin(SoftwareSerial* serial) {
+	serial->begin(9600);
+	sds_data = serial;
+}
+
