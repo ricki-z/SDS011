@@ -11,6 +11,10 @@ int error;
 
 SDS011 my_sds;
 
+#ifdef ESP32
+HardwareSerial Serial1(2);
+#endif
+
 void setup() {
 	my_sds.begin(&Serial1);
 	Serial.begin(115200);
