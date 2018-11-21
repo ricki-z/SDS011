@@ -14,8 +14,9 @@
 	#include "WProgram.h"
 #endif
 
+#ifndef ESP32 
 #include <SoftwareSerial.h>
-
+#endif
 
 class SDS011 {
 	public:
