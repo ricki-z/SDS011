@@ -25,3 +25,4 @@ i.e.
 SDS011 mySDS;
 mySDS.begin(Serial1);
 ```
+HardwareSerial objects need to be defined if using ESP32
