@@ -14,20 +14,15 @@
 	#include "WProgram.h"
 #endif
 
-
-#ifndef ESP32
-	#include <SoftwareSerial.h>
-#endif
+#include <SoftwareSerial.h>
 
 
 class SDS011 {
 	public:
 		SDS011(void);
-#ifndef ESP32
-		void begin(SoftwareSerial* serial);
 		void begin(uint8_t pin_rx, uint8_t pin_tx);
-#endif	
 		void begin(HardwareSerial* serial);
+		void begin(SoftwareSerial* serial);
 		int read(float *p25, float *p10);
 		void sleep();
 		void wakeup();
