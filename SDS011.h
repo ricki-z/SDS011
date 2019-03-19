@@ -22,7 +22,7 @@ class SDS011 {
 	public:
 		SDS011(void);
 		void begin(HardwareSerial* serial);
-        void begin(HardwareSerial* serial, int8_t pin_rx, int8_t pin_tx);
+		void begin(HardwareSerial* serial, int8_t pin_rx, int8_t pin_tx);
 #ifndef ESP32 
 		void begin(SoftwareSerial* serial);
 		void begin(uint8_t pin_rx, uint8_t pin_tx);
