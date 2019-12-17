@@ -114,10 +114,12 @@ void SDS011::begin(HardwareSerial* serial) {
 	sds_data = serial;
 }
 
+#ifdef ESP32
 void SDS011::begin(HardwareSerial* serial, int8_t rxPin, int8_t txPin) {
 	serial->begin(9600, SERIAL_8N1, rxPin, txPin);
 	sds_data = serial;
 }
+#endif
 
 #ifndef ESP32
 void SDS011::begin(SoftwareSerial* serial) {
