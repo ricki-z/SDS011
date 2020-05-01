@@ -32,6 +32,29 @@ static const byte SLEEPCMD[19] = {
 	0xAB	// tail
 };
 
+static const byte WAKEUPCMD[19] = {
+      0xAA,     // head
+      0xB4,     // command id
+      0x06,     // data byte 1
+      0x01,     // data byte 2 (set mode)
+      0x01,     // data byte 3 (work)
+      0x00,     // data byte 4
+      0x00,     // data byte 5
+      0x00,     // data byte 6
+      0x00,     // data byte 7
+      0x00,     // data byte 8
+      0x00,     // data byte 9
+      0x00,     // data byte 10
+      0x00,     // data byte 11
+      0x00,     // data byte 12
+      0x00,     // data byte 13
+      0xFF,     // data byte 14 (device id byte 1)
+      0xFF,     // data byte 15 (device id byte 2)
+      0x06,     // checksum
+      0xAB      // tail
+};
+
+
 SDS011::SDS011(void) {
 
 }
@@ -92,8 +115,15 @@ void SDS011::sleep() {
 // SDS011:wakeup
 // --------------------------------------------------------
 void SDS011::wakeup() {
-	sds_data->write(0x01);
-	sds_data->flush();
+    //  sds_data->write(0x01);
+    //  sds_data->flush();
+    for (uint8_t i = 0; i < 19; i++) {
+        sds_data->write(WAKEUPCMD[i]);
+    }
+    sds_data->flush();
+    while (sds_data->available() > 0) {
+        sds_data->read();
+    }
 }
 
 #ifndef ESP32
