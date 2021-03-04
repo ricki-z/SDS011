@@ -8,6 +8,9 @@
 //		- The iNovaFitness SDS011 datasheet
 //
 
+#ifndef __SDS011_H
+#define __SDS011_H
+
 #if ARDUINO >= 100
 	#include "Arduino.h"
 #else
@@ -37,3 +40,5 @@ class SDS011 {
 		uint8_t _pin_rx, _pin_tx;
 		Stream *sds_data;
 };
+
+#endif
