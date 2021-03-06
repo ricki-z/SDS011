@@ -31,7 +31,7 @@ class SDS011 {
 #ifdef ESP32
 		void begin(HardwareSerial* serial);
 		void begin(HardwareSerial* serial, int8_t pin_rx, int8_t pin_tx);
-#endif ESP32
+#endif
 		int read(float *p25, float *p10);
 		void sleep();
 		void wakeup();
